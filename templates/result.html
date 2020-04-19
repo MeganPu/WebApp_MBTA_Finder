@@ -6,13 +6,17 @@
   </head>
 
   <body>
-    <h1>Results</h1>
-    <p>Your place is {{ place }} </p>
-    <p>Your route type is {{ route_type}} </p>
-    <p>The nearest MBTA station is {{ station_name }} and the wheelchair boarding condition is {{ wheelchair_boarding }}.</p>
-   <p>For wheelchair:</p>
-    <p> 0 means No Information</p> 
-    <p> 1 means Accessible (if trip is wheelchair accessible)</p> 
-    <p> 2 means	Inaccessible</p>
+    <form method="POST" name="mbta_finder">
+        {% if error %}
+        <p style="color:red">No nearby stations are found.</p>
+        {% endif %}
+        <h1>Results</h1>
+        <p>Your place is {{ place }} </p>
+        <p>Your route type is {{ route_type}} </p>
+        <p>The nearest MBTA station is {{ station_name }} and the wheelchair boarding condition is {{ wheelchair_boarding }}.</p>
+        <p>For wheelchair:</p>
+        <p> 0 means No Information</p> 
+        <p> 1 means Accessible (if trip is wheelchair accessible)</p> 
+        <p> 2 means	Inaccessible</p>
   </body>
 </html>
