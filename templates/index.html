@@ -1,10 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Amazing app to help you find nearest MBTA station</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Amazing app to help you find nearest MBTA station</title>
+    </head>
 
-</body>
+    <body>
+    <h1>Hello!</h1>
+        <form method="POST" name="mbta_finder">
+          {% if error %}
+          <p style="color:red">No nearby stations are found.</p>
+          {% endif %}
+          <p>
+            Please enter a place name in Boston such as "Fenway Park":
+          </p>
+          <p>
+            <input type="text" size="4" name="place" />
+            Please choose a route type, for multiple route type, use comma to seperate like 1,2,3: 
+            <input type="text" size="4" name="route_type" />
+          </p>
+          <p>
+            <input type="submit" value="Magic Happens" />
+          </p>
+        </form>
+    </body>
 </html>
