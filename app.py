@@ -15,16 +15,15 @@ def find():
     # aka. it displays the form when the method is 'GET'; it displays the results when
     # the method is 'POST' and the data is correctly processed.
     if request.method == 'POST':
-        place = str(request.form["place"])
-        route_type=str(request.form["route_type"])
-        station_name, wheelchair_boarding = find_stop_near(place,route_type)
-
-        if station_name:
+        try:
+            place = str(request.form["place"])
+            route_type=str(request.form["route_type"])
+            station_name, wheelchair_boarding = find_stop_near(place,route_type)
             return render_template(
-                "result.html",place=place,route_type=route_type,station_name=station_name, wheelchair_boarding=wheelchair_boarding
+                "result.html",place=place,station_name=station_name, wheelchair_boarding=wheelchair_boarding
             )
-        else:
-            return render_template("index.html",error=True)
+        except Exception as e:
+            return render_template("error.html",error=e)
     return render_template("index.html",error=None)
 
 

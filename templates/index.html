@@ -10,13 +10,12 @@
         <form method="POST" name="mbta_finder">
           {% if error %}
           <p style="color:red"> No nearby stations are found.</p>
-          <a href="index.html">Back to Homepage</a>
           {% endif %}
           <p>
             Please enter a place name in Boston such as "Fenway Park":
           </p>
           <p>
-            <input type="text" size="4" name="place" />
+            <input type="text" size="20" name="place" />
           </p>
           <p>Please choose a route type, for multiple route type, use comma to seperate like 1,2,3: </p>
           <p>0 - Tram, Streetcar, Light rail. 
